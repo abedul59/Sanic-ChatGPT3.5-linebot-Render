@@ -7,7 +7,7 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage
 
 
 from sanic import Sanic
-from sanic.response import json, HTTPException
+from sanic.response import json
 app = Sanic()
 ################################################################
 import openai, os
@@ -67,8 +67,10 @@ async def callback(request):
     body = await request.body()
     try:
         handler.handle(body.decode(), signature)
-    except InvalidSignatureError:
-        raise HTTPException(status_code=400, detail="Missing Parameters")
+    except:
+	pass
+	#InvalidSignatureError:
+        #raise HTTPException(status_code=400, detail="Missing Parameters")
     return "OK"
 
 @handler.add(MessageEvent, message=TextMessage)
