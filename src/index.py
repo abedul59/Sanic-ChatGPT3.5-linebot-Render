@@ -6,6 +6,8 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage
 
 
 
+from sanic import Sanic
+from sanic.response import json, HTTPException
 app = Sanic()
 ################################################################
 import openai, os
@@ -52,16 +54,11 @@ class ChatGPT:
 
 chatgpt = ChatGPT()
 
-
-from sanic import Sanic
-from sanic.response import json, HTTPException
-
  
  
 @app.route('/')
-@app.route('/<path:path>')
-async def index(request, path=""):
-    return json({'hello': path})
+async def index(request):
+    return text('hello')
 
 
 @app.post("/callback")
