@@ -1,5 +1,5 @@
-sanic==19.6.0
+sanic
 uvicorn
-websockets==10.4
+websockets
 line-bot-sdk==1.8.0
 openai==0.27.0
