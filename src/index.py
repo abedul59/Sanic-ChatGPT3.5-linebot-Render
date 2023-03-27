@@ -8,7 +8,7 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage
 
 from sanic import Sanic
 from sanic.response import json
-app = Sanic()
+app = Sanic(name="myApp")
 ################################################################
 import openai, os
 	
